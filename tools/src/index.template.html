@@ -55,6 +55,7 @@ h1 { font-size: 1.9rem; letter-spacing: .02em; }
 h2 { font-size: 1.25rem; }
 h3 { font-size: 1.05rem; }
 p { margin: 0; }
+.allbtn { margin: 10px 0 4px; }
 .kicker.lvbig { font-size: 2rem; letter-spacing: .08em; color: var(--fg); margin: 0 0 2px; }
 .kicker { font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .12em; color: var(--muted); }
 .lead { color: var(--muted); margin-top: 6px; }
@@ -258,7 +259,8 @@ footer { color: var(--muted); font-size: .82rem; text-align: center; }
     return '<nav class="topnav" aria-label="サイト内の移動"><a href="https://chugaku.senta1111.workers.dev/">← 中学トップ</a><a class="navbtn" href="https://chugaku.senta1111.workers.dev/suugaku.html">数学トップ</a></nav>' +
       '<header><p class="kicker lvbig">レベル5</p><h1>やりなおし数学</h1>' +
       '<p class="lead">単位・角度・面積から、円とおうぎ形、作図まで。図形は、公式と図をセットで覚えれば、ぐっと点がとれる。</p></header>' +
-      '<nav class="tabs" aria-label="パート">' + tabs + '</nav>';
+      '<nav class="tabs" aria-label="パート">' + tabs + '</nav>' +
+      (S.phase === 'review' ? '' : '<button class="btn sub allbtn" data-act="review">全問題を答えつきで見る（確認用）</button>');
   }
 
   function listView() {
@@ -343,7 +345,7 @@ footer { color: var(--muted); font-size: .82rem; text-align: center; }
   function reviewView() {
     var secs = PARTS.map(function (P) {
       return '<h2>' + P.title + '</h2>' + P.steps.map(function (st, si) {
-        return '<details class="rvs"><summary>ステップ' + (si + 1) + '　' + st.title + '（' + st.qs.length + '問）</summary><div class="stack">' +
+        return '<details class="rvs" open><summary>ステップ' + (si + 1) + '　' + st.title + '（' + st.qs.length + '問）</summary><div class="stack">' +
           '<p class="intro">' + m(st.intro) + '</p>' + st.qs.map(function (q, qi) {
             var ch = q.ch.map(function (c, i) {
               var ok = i === q.ans;
