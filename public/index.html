@@ -61,6 +61,7 @@ h1 { font-size: 1.9rem; letter-spacing: .02em; }
 h2 { font-size: 1.25rem; }
 h3 { font-size: 1.05rem; }
 p { margin: 0; }
+.lvbig { font-size: 1.9rem; letter-spacing: .08em; color: var(--fg); margin: 0 0 2px; }
 .kicker { font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .12em; color: var(--muted); }
 .lead { color: var(--muted); margin-top: 6px; }
 header { padding-top: 4px; }
@@ -266,7 +267,7 @@ if (typeof module !== 'undefined') module.exports = PARTS;
         p.sub + '</span><span>クリア ' + done + '/' + p.steps.length + '</span></button>';
     }).join('');
     return '<nav class="topnav" aria-label="サイト内の移動"><a href="https://chugaku.senta1111.workers.dev/">← 中学トップ</a><a class="navbtn" href="https://chugaku.senta1111.workers.dev/suugaku.html">数学トップ</a></nav>' +
-      '<header><p class="kicker">レベル5</p><h1>やりなおし数学</h1>' +
+      '<header><p class="kicker lvbig">レベル5</p><h1>やりなおし数学</h1>' +
       '<p class="lead">単位・角度・面積から、円とおうぎ形、作図まで。図形は、公式と図をセットで覚えれば、ぐっと点がとれる。</p></header>' +
       '<nav class="tabs" aria-label="パート">' + tabs + '</nav>';
   }
